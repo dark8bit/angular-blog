@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -32,6 +33,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
   ],
   imports: [
     BrowserModule,
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
