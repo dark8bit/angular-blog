@@ -3,6 +3,7 @@ import { PostsService } from '../shared/services/posts.service';
 import { Post } from '../../shared/interfaces/post';
 import { Subscription } from 'rxjs';
 import { AlertService } from '../shared/services/alert.service';
+import { SortType } from '../../shared/enums/sort-type.enum';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -12,6 +13,7 @@ import { AlertService } from '../shared/services/alert.service';
 export class DashboardPageComponent implements OnInit, OnDestroy {
   public posts: Post[] = [];
   public searchStr = '';
+  public sortType = SortType;
 
   private pSub: Subscription;
   private dSub: Subscription;

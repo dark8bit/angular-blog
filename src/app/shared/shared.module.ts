@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 const modules = [
   MatSidenavModule,
@@ -19,8 +20,12 @@ const modules = [
   MatProgressSpinnerModule
 ]
 
+const pipes = [
+  SortingPipe
+]
+
 @NgModule({
-  declarations: [],
+  declarations: [...pipes],
   imports: [
     HttpClientModule,
     QuillModule.forRoot(),
@@ -29,7 +34,8 @@ const modules = [
   exports: [
     HttpClientModule,
     QuillModule,
-    ...modules
+    ...modules,
+    ...pipes
   ]
 })
 export class SharedModule {
