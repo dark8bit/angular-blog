@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { AlertService } from '../../services/alert.service';
 import { Subscription } from 'rxjs';
+import { AlertType } from '../../enums/alert-type.enum';
 
 @Component({
   selector: 'app-alert',
@@ -12,7 +13,7 @@ export class AlertComponent implements OnInit, OnDestroy {
   delay = 5000;
 
   public text: string;
-  public type = 'success';
+  public type = AlertType.success;
 
   private aSub: Subscription;
 

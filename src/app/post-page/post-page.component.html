@@ -1,19 +1,21 @@
 <div *ngIf="post$ | async as post; else loading">
-  <div class="post">
-    <div class="header">
-      <h1>{{post.title}}</h1>
-      <button class="btn btn-link" [routerLink]="'/'">На главную</button>
+  <mat-card>
+    <div align="end" class="example-button-container">
+      <button mat-raised-button color="primary" [routerLink]="'/'">На главную</button>
     </div>
-    <div class="info">
-      <strong>{{post.author}}</strong>
-      <small>{{post.date | date:'medium': null:'ru'}}</small>
-    </div>
-    <div>
+    <mat-card-header>
+      <mat-card-title>{{post.title}}</mat-card-title>
+      <p>{{post.date | date:'medium': null:'ru'}}</p>
+      <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
       <quill-view-html [content]="post.text"></quill-view-html>
-    </div>
-  </div>
-
+    </mat-card-content>
+  </mat-card>
 </div>
+
 <ng-template #loading>
-  <p class="text-center">Идет загрузка поста...</p>
+  <div class="content-center">
+    <mat-spinner></mat-spinner>
+  </div>
 </ng-template>

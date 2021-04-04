@@ -1,4 +1,4 @@
-export type AlertType = 'success' | 'warning' | 'danger';
+import { AlertType } from '../enums/alert-type.enum';
 
 export interface Alert {
   type: AlertType;
